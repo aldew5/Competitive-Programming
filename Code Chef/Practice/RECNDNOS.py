@@ -1,5 +1,5 @@
 # "Chef and Numbers"
-# Alec Dewulf
+# Aldew
 # Difficulty: Cakewalk
 
 T = int(input())
