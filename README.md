@@ -5,4 +5,6 @@ Sites inlcude:
 - HackerRank
 - CodeChef
 - HackerEarth
+- Canadian Computing Contest
+
 
