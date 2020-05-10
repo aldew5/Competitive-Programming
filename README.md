@@ -4,7 +4,6 @@ Solutions and explanations to competitive programming problems in Python and Jav
 Sites inlcude:
 - HackerRank
 - CodeChef
-- HackerEarth
 - Canadian Computing Contest
 
 
