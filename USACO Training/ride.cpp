@@ -2,6 +2,7 @@
 ID: alec3
 LANG: C++14
 PROG: ride
+CLASSIFICATION: Ad Hoc
 */
 
 #include <iostream>
