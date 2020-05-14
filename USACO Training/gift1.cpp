@@ -29,21 +29,21 @@ int main()
     vector <string> members;
 
     ofstream fout("gift1.out");
-	ifstream fin("gift1.in");
+    ifstream fin("gift1.in");
 
-	fin >> num_friends;
-	// declare a vector of length num friends where each
-	//friend's balance is 0
-	vector<int> balance(num_friends, 0);
+    fin >> num_friends;
+    // declare a vector of length num friends where each
+    //friend's balance is 0
+    vector<int> balance(num_friends, 0);
 
     // create a vector of all the names
-	for (int i = 0; i < num_friends; i++){
+    for (int i = 0; i < num_friends; i++){
         string member;
         fin >> member;
         members.push_back(member);
 	}
 	// get data for a person
-	for (int i = 0; i < members.size(); i++) {
+    for (int i = 0; i < members.size(); i++) {
         string name;
         int total;
         int num_gifts;
@@ -69,7 +69,8 @@ int main()
                 balance[person_index] += (total / num_gifts);
             }
         }
-	}
+    }
+	
     //output the names and their balances
     for (int i = 0; i < num_friends; i++){
         fout << members[i] << " " << balance[i] << "\n";
