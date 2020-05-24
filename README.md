@@ -2,7 +2,7 @@
 Solutions and explanations to competitive programming problems in Python and Java
 
 Sites inlcude:
-- HackerRank
+- Codeforces
 - CodeChef
 - Canadian Computing Contest
 
