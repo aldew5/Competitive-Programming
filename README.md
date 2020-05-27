@@ -5,5 +5,6 @@ Sites inlcude:
 - Codeforces
 - CodeChef
 - Canadian Computing Contest
+- USACO
 
 
