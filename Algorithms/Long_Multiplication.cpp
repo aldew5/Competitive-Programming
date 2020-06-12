@@ -1,4 +1,9 @@
 using namespace std;
+/*
+Arguments are vectors with each index representing an integer and its
+place in a number. Designed to multiply integers too big to be
+stored by an unsigned long long.
+*/
 
 vector<int> LongMulti(vector<int> x, vector<int> y){
     vector<vector<int> > rows;
