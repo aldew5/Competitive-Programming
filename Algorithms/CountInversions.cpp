@@ -1,3 +1,6 @@
+//Divide and conquer algorithm to count
+//inversions in an array
+
 ll CountSplitInversions(int L[], int R[], int nl, int nr){
 
     sort(L, L + nl);
