@@ -1,0 +1,59 @@
+/*
+ID: alec3
+LANG: C++14
+PROG: palsquare
+CLASSIFICATION: brute force
+*/
+
+#include <bits/stdc++.h>
+#define check(x) cout<<(#x)<<": "<<x<<" ";
+#define io ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+using namespace std;
+
+
+string to_base(int number,int base){
+	string bases = "0123456789ABCDEFGHIJK";
+	string result = "";
+
+	while(number > 0){
+		result = bases[number % base] + result;
+		number /= base;
+	}
+	return result;
+}
+
+bool isPal(string s){
+    string rev = string(s.rbegin(), s.rend());
+    if (rev == s) return true;
+    else return false;
+}
+
+int main() {
+    ofstream fout ("palsquare.out");
+    ifstream fin ("palsquare.in");
+
+	int b;
+	fin >> b;
+
+	int c = 0;
+	int i = 1;
+	string number;
+	for (int i = 1; i <= 300; i++){
+
+        number = to_base(i * i, b);
+
+        if (isPal(number)){
+            cout << to_base(i, b) << " " << number << endl;
+            fout << to_base(i, b) << " " << number << endl;
+        }
+	}
+
+
+
+	return 0;
+}
