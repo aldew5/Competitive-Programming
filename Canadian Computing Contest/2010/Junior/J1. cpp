@@ -1,0 +1,55 @@
+/*
+Aldew
+PROB: What is n, Daddy?
+CLASSIFICATION: Implementation
+
+*/
+
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+#include <cmath>
+#include <string>
+#include <map>
+#include <math.h>
+#include <cstdio>
+#include <stack>
+#define check(x) cout<<(#x)<<": "<<x<<" ";
+#define io ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+using namespace std;
+
+int main()
+{
+    io;
+    int n;
+    cin >> n;
+
+    vector<int> used;
+
+    int ans = 0;
+    bool good;
+    for (int i = 0; i < n && i <= 5; i++){
+        good = true;
+        for (int j = 0; j < used.size(); j++){
+            if (used[j] == n-i){
+                good = false;
+                break;
+            }
+        }
+
+        if (good && n-i <= 5) ans ++;
+
+        if (good) {
+            used.push_back(n-i);
+            used.push_back(i);
+        }
+    }
+    cout << ans << endl;
+
+    return 0;
+}
