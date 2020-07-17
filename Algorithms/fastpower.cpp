@@ -11,3 +11,16 @@ long long fast_power(long long base, long long power) {
     return result;
 }
 
+
+
+// bitshifts
+int pwr(int a,ll b) {
+	int ans = 1;
+	while(b) {
+		if(b & 1) ans = (ans * 1LL * a);
+		a = (a * 1LL * a);
+		b >>= 1;
+	}
+    return ans;
+}
+
