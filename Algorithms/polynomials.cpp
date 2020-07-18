@@ -1,3 +1,8 @@
+const int mod = MAX_INT;
+int mul(int x, int y) {
+    return 1LL * x * y % mod;
+}
+
 struct polynom {
     int n, coef[max_n];
  
