@@ -59,16 +59,20 @@ void solve(int lights, int i, int n){
             poss[lights] = 1;
         return;
     }
-    // 
+    // loop through possible ways to flip the lights
     for (; i < 4; i++){
+        // the XOR makes sure the bit vector is new
         solve(lights ^ flip[i], i + 1, n-1);
     }
 }
 void print (int lights){
     char s[100+1];
 
+    // loop through the lamps
     for(int i = 0; i < nlamp; i++)
+        // s[i] is 1 if the bit is 1 and 0 otherwise
         s[i] = (lights & (1<<(MAXLAMP - 1 - i % MAXLAMP))) ? '1' : '0';
+    // makes it an "empty" value so it isn't printed
     s[nlamp] = '\0';
 
     fout << s << endl;
@@ -78,17 +82,17 @@ void print (int lights){
 
 int main()
 {
-    fin >> nlamp >> nswitch;
+    cin >> nlamp >> nswitch;
 
     int a;
     // reading ON lamps
     while (true){
         // a is a lamp index
-        fin >> a;
+        cin >> a;
         if (a == -1)
             break;
-    
-        // computing a mod 6, zero index it to 
+
+        // computing a mod 6, zero index it to
         // find it's position in the bit vector
         a = MAXLAMP - 1 - (a-1) % MAXLAMP;
         // the ath bit of ison and known will be one
@@ -98,7 +102,7 @@ int main()
 
     // reading OFF lamps
     while (true){
-        fin >> a;
+        cin >> a;
         if (a == -1)
             break;
 
@@ -106,7 +110,7 @@ int main()
         known |= 1 << a;
 
     }
-    
+
     // based on logic at top
     if (nswitch > 4){
         if (nswitch % 2 == 0)
@@ -114,20 +118,22 @@ int main()
         else
             nswitch = 3;
     }
-    
-    
+
+    // loop through switches
     for (; nswitch >= 0; nswitch -= 2){
         solve(LAMPMASK, 0, nswitch);
     }
 
     bool impossible = true;
     for (int i = 0; i < (1 << MAXLAMP); i++){
+        // possible string
         if (poss[i]){
+            // print it
             print(i);
             impossible = false;
         }
     }
-
+    // if nothing was printed
     if (impossible)
         fout << "IMPOSSIBLE" << endl;
 
@@ -135,3 +141,4 @@ int main()
     return 0;
 
 }
+
