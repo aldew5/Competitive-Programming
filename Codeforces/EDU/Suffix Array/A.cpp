@@ -1,8 +1,7 @@
 /*
 ID: alec3
 LANG: C++14
-PROG: lamps
-credit to Russ Cox
+PROG: suffix array
 */
 
 
