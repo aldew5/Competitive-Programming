@@ -3,6 +3,10 @@ ID: alec3
 LANG: C++14
 PROG: nocows
 */
+/*
+This is a dynamic programming problem that can be solved using
+the build things from smaller things paradigm.  
+*/
 
 
 #include <bits/stdc++.h>
