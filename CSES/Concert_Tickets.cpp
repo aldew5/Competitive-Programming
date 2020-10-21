@@ -4,13 +4,6 @@ LANG: C++14
 PROG:
 */
 /*
-We maintain a set of all lengths and a set of all points. Every time
-we read a new point, we find the range it impacts ([left, right]) and remove
-the corrosponding length from the multiset. We can then replace it with the two
-new created lengths.
-
-We use a multiset because it allows us to store multiple lengths of the same
-magnitude.
 */
 
 #include <bits/stdc++.h>
