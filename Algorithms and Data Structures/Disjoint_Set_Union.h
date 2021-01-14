@@ -13,3 +13,8 @@ struct DSU {
         return 1;
     }
 };
+
+
+void union_init(int d[], int s) { for (int i=0; i < s; i++) d[i]=i; }
+int union_query(int d[], int n) { int res=n; while (d[res]!=res) res=d[res]; int m; while (d[n]!=n) {m=d[n];d[n]=res;n=m;} return res; };
+int union_merge(int d[], int x, int y) { x=union_query(d,x); y=union_query(d,y); if (x==y)return -1; d[x]=y; return 1; }
