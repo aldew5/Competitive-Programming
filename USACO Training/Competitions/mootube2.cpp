@@ -71,7 +71,7 @@ bool cmp(const pair<int, pair<int, int>>& a, const pair<int, pair<int, int>>& b)
 
 int main()
 {
-    //setIO("closing");
+    setIO("mootube");
 
     int n, q;
     cin >> n >> q;
