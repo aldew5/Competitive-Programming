@@ -44,3 +44,20 @@ struct BIT {
 
 
 };
+
+
+
+const int MX = 2e5+5;
+
+int n, q;
+vector<ll> bit(MX), x(MX);
+
+void upd(int i, ll v) {
+    for (; i<=n; i+=i&(-i)) bit[i]+=v;
+}
+
+ll qry(int i) {
+    ll sum = 0;
+    for(; i>0; i-=i&(-i)) sum += bit[i];
+    return sum;
+}
