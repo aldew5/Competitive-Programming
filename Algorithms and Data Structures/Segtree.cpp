@@ -16,3 +16,7 @@ template<class T> struct Seg { // comb(ID,b) = b
         return comb(ra,rb);
     }
 };
+
+// options for comb
+// ssummation 
+const T ID = 0; T comb(T a, T b) { return a+b; }
