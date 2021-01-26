@@ -4,8 +4,7 @@ LANG: C++14
 PROG: haircut
 */
 /*
-Figure out which cows are connected by a broadcast and then
-dfs on the adjacency array.
+
 */
 
 
