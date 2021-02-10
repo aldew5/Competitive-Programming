@@ -1,3 +1,6 @@
+ll dist[100000];
+int N;
+
 // credit to CPI
 void dijkstra(int src){
     for (int i = 0; i < n; i++)
