@@ -1,4 +1,5 @@
 ll dist[100000];
+pair<ll, ll> graph[100001];
 int n;
 
 // credit to CPI
