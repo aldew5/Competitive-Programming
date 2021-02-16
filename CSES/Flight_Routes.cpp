@@ -43,10 +43,9 @@ void setIO(string name) {
 }
 
 // declare arrays
-vector<pair<ll, int>> edge[200001];
-ll dist[100001]; priority_queue<ll> best[10001];
-bool v[100001];
-int cnt[100001];
+vector<pair<ll, ll>> edge[200002];
+ll dist[100001]; priority_queue<ll> best[100001];
+
 vector<ll> ans;
 int n, m, k;
 // modified dj
@@ -54,18 +53,41 @@ void djikstra(int s){
     // contain pairs in a vector
     priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;
 
+    // put the starting node on the pq
+    // best stores lowest cost to s (which is zero since we start there)
     best[s].push(0); pq.push({0,s});
+
     while (pq.size()) {
-        auto a = pq.top(); pq.pop();
-        if (a.ff > best[a.ss].top()) continue;
+
+        // top city (node)
+        pair<ll, ll> a = pq.top(); pq.pop();
+
+        // the cost of getting to the city
+        // is greater than the best value (haven't found a better value)
+        if (a.ff > best[a.ss].top())
+            continue;
+
+        // loop through the cities it's connected to
         for (auto& i: edge[a.ss]) {
+            // the cost of getting to this city + the cost of getting to the next city
             ll tmp = a.ff+i.ss;
+
+            // if we haven't found the k lowest costs yet
             if (best[i.ff].size() < k) {
+                // push the running total of the cost of getting to
+                // that city
                 best[i.ff].push(tmp);
-                pq.push({tmp,i.ff});
-            } else if (tmp < best[i.ff].top()) {
+                // push the new city on {cost, city}
+                pq.push({tmp, i.ff});
+            }
+
+            // we've found a better price
+            else if (tmp < best[i.ff].top()) {
+                // remove the greatest cost
                 best[i.ff].pop();
+                // push the better cost
                 best[i.ff].push(tmp);
+                // add the new node
                 pq.push({tmp,i.ff});
             }
         }
@@ -81,7 +103,7 @@ int main()
   for (int i = 0; i < m; i++){
     ll a, b, c;
     cin >> a >> b >> c;
-    pair<ll, int> d = {b, c};
+    pair<ll, ll> d = {b, c};
     edge[a].pb(d);
   }
 
@@ -89,6 +111,7 @@ int main()
     for (int i = 0; i < 100001; i++){
         dist[i] = MX;
     }
+    // call djikstra and output
     djikstra(1);
     vector<ll> ans;
     while (best[n].size()) {
@@ -96,6 +119,8 @@ int main()
         best[n].pop();
     }
     reverse(ans.begin(), ans.end());
-    for (auto a: ans) cout << a << " ";
+    for (auto a: ans)
+        cout << a << " ";
+    cout << endl;
 }
 
