@@ -1,0 +1,116 @@
+
+/*
+ID: alec3
+LANG: C++14
+PROG:
+*/
+/*
+PARTIALLY SOLVED
+*/
+
+
+#include <bits/stdc++.h>
+
+#define check(x) cout<<(#x)<<": "<<x<<" " << endl;
+#define line cout << "--------------------" << endl;
+#define io ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+#define ss second
+#define ff first
+#define pb push_back
+#define lb lower_bound
+#define ub upper_bound
+#define mp make_pair
+
+#define FOR(i, a, b) for (int i = a; i < b; i++)
+#define F0R(i, a) for (int i = 0; i < (a); i++)
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+int pct(int x) { return __builtin_popcount(x); }
+
+using namespace std;
+
+const ll MOD = 1e9 + 7;
+const ll INF = 1e10 + 70;
+const ll MX = 1000000000000000L;
+
+void setIO(string name) {
+	freopen((name+".in").c_str(),"r",stdin);
+	freopen((name+".out").c_str(),"w",stdout);
+	ios_base::sync_with_stdio(0);
+}
+
+vector<pair<ll, ll> > edge[100001];
+ll dist[100001];
+bool cow[100001];
+
+
+void djikstra(int n){
+    priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;
+
+    pq.push({n, 0});
+    while (!pq.empty()){
+        pair<ll, ll> node = pq.top();
+        pq.pop();
+        //cout << "HERE" << endl;
+        for (auto i : edge[node.ff]){
+            if (dist[i.ff] > node.ss + i.ss){
+                dist[i.ff] = node.ss + i.ss;
+                pq.push({i.ff, dist[i.ff]});
+            }
+        }
+    }
+}
+
+
+int main()
+{
+    setIO("dining");
+    int n, m, k;
+    cin >> n >> m >> k;
+    int a, b, t;
+    for (int i= 0; i < m; i++){
+        cin >> a >> b >> t;
+        edge[a].pb({b, t});
+        edge[b].pb({a, t});
+    }
+
+    vector<int> haybale;
+    // just subtract the initial cost
+    // need an intelligent way of checking if a cow
+    // can get there not O(N^2)
+    for (int i = 1; i <= n; i++)
+        dist[i] = INT_MAX;
+    djikstra(n);
+
+
+    for (int i = 0; i < k; i++){
+        cin >> a >> b;
+        cow[a] = true;
+        int l = a, r = a;
+        bool one = true, two = true;
+        while (one || two){
+            one = false; two = false;
+
+            if (l - 1 > 0 && dist[a] - dist[l-1] < b){
+                cow[l-1] = true;
+                one = true;
+                l --;
+            }
+            if (r + 1 < n && dist[a] - dist[r+1] < b){
+                cow[r+1] = true;
+                two = true;
+                r ++;
+            }
+
+        }
+    }
+
+    for (int i = 1; i < n; i++)
+        cout << cow[i] << endl;
+
+
+}
+
