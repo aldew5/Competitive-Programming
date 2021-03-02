@@ -4,7 +4,7 @@ LANG: C++14
 PROG:
 */
 /*
-Credit to Oscar Garries
+
 */
 
 
