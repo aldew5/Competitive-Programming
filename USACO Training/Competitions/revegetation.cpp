@@ -76,7 +76,6 @@ void dfs(int u, int v){
     for (auto i : b[u]){
         if (visit[i] == v){
             possible = false;
-            //cout << "HERE " << i << endl;
         }
         if(visit[i] == 0)
             dfs(i, 3-v);
