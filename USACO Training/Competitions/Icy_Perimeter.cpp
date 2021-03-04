@@ -36,6 +36,8 @@ char grid[1001][1001];
 bool visit[1001][1001];
 
 int a, p;
+// flood fill that updates perimeter and area for 
+// each new block
 void ff (int r, int c){
     if (r >= n || c >= n || r < 0 || c < 0 || grid[r][c] == '.' )
         return;
@@ -76,12 +78,13 @@ int main()
     int mxa = 0, mxp = 0;
     FOR (i, 0, n){
         FOR(j, 0, n){
+            // call flood fill on each disjoint set of # blocks
             if (grid[i][j] == '#' && !visit[i][j]){
                 a = 0; p = 0;
                 ff(i, j);
-                //cout << "HERE" << endl;
+                // test if a new max area was found
                 if (a >= mxa){
-
+                    // update maxp and maxa
                     if (mxp != 0 && mxa == a)
                         mxp = min(p, mxp);
                     else
@@ -92,7 +95,7 @@ int main()
             }
         }
     }
-
+    // output
     fout << mxa << " " << mxp << endl;
 
     return 0;
