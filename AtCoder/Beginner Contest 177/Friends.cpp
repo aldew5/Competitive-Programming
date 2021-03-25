@@ -1,8 +1,4 @@
-/*
-ID: alec3
-LANG: C++14
-PROG:
-*/
+
 /*
 This is a disjoint set problem made vastly easier with the 
 template. Just output the number with the most connections.
