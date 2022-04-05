@@ -41,8 +41,6 @@ struct BIT {
             ret += bit[idx];
         return ret;
     }
-
-
 };
 
 
@@ -61,7 +59,6 @@ ll qry(int i) {
     for(; i>0; i-=i&(-i)) sum += bit[i];
     return sum;
 }
-
 
 // template
 template <class T, int ...Ns> struct BIT {
