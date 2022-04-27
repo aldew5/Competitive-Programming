@@ -13,7 +13,6 @@ We then loop through all the possible i's and increment total by the ones
 that have the same vaule. We solve it with brute force.
 */
 
-
 #include <bits/stdc++.h>
 
 #define check(x) cout<<(#x)<<": "<<x<<" ";
