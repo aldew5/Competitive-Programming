@@ -54,7 +54,6 @@ void dfs(int n, int c){
         leaf = n;
     ans = max(ans, c);
 
-
     for (auto u : adj[n])
         dfs(u, c+1);
 
@@ -77,8 +76,6 @@ int main ()
     //cout << "LEAF is " << leaf << endl;
     ans = 0;
     dfs(leaf, 0);
-
-
 
     cout << ans << endl;
 
