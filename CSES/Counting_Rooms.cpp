@@ -65,7 +65,6 @@ int main()
         FOR(j, 0, m){
             if (grid[i][j] != '#' && !visit[i][j]){
                 ans ++;
-                //cout << "HERE " << i << " " << j << endl;
                 flood_fill(i, j);
             }
         }
