@@ -55,6 +55,3 @@ for _ in range(t):
     # nothing got printed
     if not p:
         print('NO')
-    
- 
-            
