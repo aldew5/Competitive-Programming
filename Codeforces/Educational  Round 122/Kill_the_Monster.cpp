@@ -4,8 +4,6 @@
 #include <string>
 #include <algorithm>
 
-
-//#define check(x) cout<<(#x)<<": "<<x<<" " << endl;
 #define line cout << "--------------------" << endl;
 #define io ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
@@ -63,7 +61,7 @@ int main () {
             if (health % dm != 0 ){
                 b ++;
             }
-            //cout << "HERE " << damage << "  " << health << " " << a << " " << b << endl;
+            
             if (b >= a){
                 cout << "YES" << endl;
                 good = true;
