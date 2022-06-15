@@ -68,7 +68,4 @@ int main() {
 	}
     fout << endl;
     return 0;
-
-
-
 }
